@@ -4,7 +4,7 @@ trigger MaintenanceRequest on Case (after update) {
     
     for(Case newCase : Trigger.new){
         Case oldCase = Trigger.oldMap.get(newCase.Id);
-        if((newCase.Type == Constants.CASE_TYPE_REPAIR || newCase.Type == Constants.CASE_TYPE_ROUTINE_MAINTENANCE)){
+        if((newCase.Type == Constants.CASE_TYPE_REPAIR || newCase.Type == Constants.CASE_TYPE_ROUTINE_MAINTENANCE) && (oldCase.Status != Constants.CASE_STATUS_CLOSED && newCase.Status == Constants.CASE_STATUS_CLOSED)){
             
             Date due = Date.Today();
             
