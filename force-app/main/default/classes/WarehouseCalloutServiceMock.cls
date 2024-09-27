@@ -1,3 +1,4 @@
+@istest
 global with sharing class WarehouseCalloutServiceMock implements HttpCalloutMock {
 
     global HTTPResponse respond(HttpRequest request){
